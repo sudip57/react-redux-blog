@@ -1,0 +1,89 @@
+@import url(https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic);
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  @apply box-border m-0 p-0;
+}
+
+html {
+  @apply bg-gray-100 text-black font-poppins;
+}
+
+body {
+  @apply min-h-screen text-2xl;
+}
+
+input,
+textarea,
+button,
+select {
+  @apply mb-[1em];
+}
+
+header {
+  @apply flex justify-between items-start bg-gray-100 text-[black] sticky p-4 top-0 shadow-md;
+}
+
+nav {
+  @apply flex justify-end;
+}
+
+nav ul {
+  @apply list-none;
+}
+
+nav ul li {
+  @apply inline-block mr-4;
+}
+
+main {
+  @apply max-w-[500px] m-auto;
+}
+section {
+  @apply mt-[1em];
+}
+
+.active {
+  @apply bg-gray-200 p-1 rounded-md;
+}
+
+.container {
+  @apply bg-white mb-5 p-5 rounded-md shadow-sm hover:shadow-xl;
+}
+
+h1 {
+  @apply text-[1.5rem];
+}
+h2 {
+  @apply mb-4;
+}
+p {
+  @apply leading-[1.4] text-[1.2rem] mx-0 my-[0.5em] font-poppins;
+}
+form {
+  @apply flex flex-col;
+}
+
+textarea {
+  @apply h-[200px];
+}
+.postCredit {
+  @apply text-base flex justify-evenly;
+}
+.postCredit a,
+.postCredit a:visited {
+  @apply text-[black];
+}
+.postCredit a:hover,
+.postCredit a:focus {
+  @apply text-[hsla(0,0%,0%,0.75)];
+}
+.excerpt {
+  @apply italic;
+}
+.reactionButton {
+  @apply text-black text-base ml-0 mr-[0.25em] my-0 border-[none] bg-transparent;
+}
