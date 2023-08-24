@@ -7,7 +7,7 @@ const USERS_URL = 'https://jsonplaceholder.typicode.com/users'
 type Item = {
   id: number | string
   name: string
-  userId: string
+  userId: string | number
 }
 
 type initState = Item[]
@@ -32,6 +32,6 @@ const usersSlice = createSlice({
 
 export const selectAllUsers = (state: RootState) => state.users
 
-export const selectUserById = (state: RootState, userId: string) =>
+export const selectUserById = (state: RootState, userId: string | number) =>
   state.users.find((user) => user.id === userId)
 export default usersSlice.reducer

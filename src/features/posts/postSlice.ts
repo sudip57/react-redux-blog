@@ -24,6 +24,7 @@ interface Reactions {
 }
 
 interface Item {
+  posts: string
   id: string
   title: string
   content: string
@@ -80,7 +81,7 @@ export const updatePost = createAsyncThunk<Item, Partial<Item>>(
   },
 )
 
-export const deletePost = createAsyncThunk<void, Partial<Item>>(
+export const deletePost = createAsyncThunk<Item, Partial<Item>>(
   'posts/deletePost',
   async (initialPost) => {
     const { id } = initialPost
@@ -88,8 +89,8 @@ export const deletePost = createAsyncThunk<void, Partial<Item>>(
       const response = await axios.delete(`${POSTS_URL}/${id}`)
       if (response?.status === 200) return initialPost
       return `${response?.status}: ${response?.statusText}`
-    } catch (err) {
-      return error.message
+    } catch (err: any) {
+      return err.message
     }
   },
 )
@@ -159,7 +160,7 @@ const postSlice = createSlice({
         action.payload.date = new Date().toISOString()
         postsAdapter.upsertOne(state, action.payload)
       })
-      .addCase(deletePost.fulfilled, (state, action: PayloadAction<void>) => {
+      .addCase(deletePost.fulfilled, (state, action) => {
         if (!action.payload?.id) {
           console.log('Delete could not complete')
           console.log(action.payload)

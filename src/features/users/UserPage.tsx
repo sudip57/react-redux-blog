@@ -7,6 +7,7 @@ import { ReactElement } from 'react'
 
 const UserPage = (): ReactElement => {
   const { userId } = useParams()
+
   const user = useSelector((state: RootState) =>
     selectUserById(state, Number(userId)),
   )
